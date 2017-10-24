@@ -163,5 +163,10 @@ namespace MACAddressReset
             txtInfo.AppendText(Environment.NewLine);
             txtInfo.ScrollToCaret();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowInfo(textBox2,$"当前MAC地址【{macHelper.GetMACAddress(comboBox1.SelectedValue.ToString(), out string index)}】\r\n");
+        }
     }
 }
