@@ -75,7 +75,7 @@ namespace MACAddressReset
             .OpenSubKey("Class").OpenSubKey("{4D36E972-E325-11CE-BFC1-08002bE10318}").OpenSubKey(index, true);
             if (string.IsNullOrEmpty(newMac))
             {
-                if (!string.IsNullOrEmpty(macRegistry.GetValue("NetworkAddress").ToString()))
+                if (macRegistry.GetValue("NetworkAddress") != null)
                 {
                     macRegistry.DeleteValue("NetworkAddress");
                 }
