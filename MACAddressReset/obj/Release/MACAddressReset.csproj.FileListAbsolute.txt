@@ -1,9 +1,0 @@
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\bin\Release\MACAddressReset.exe
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\bin\Release\MACAddressReset.pdb
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\obj\Release\MACAddressReset.Main.resources
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\obj\Release\MACAddressReset.Properties.Resources.resources
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\obj\Release\MACAddressReset.csproj.GenerateResource.Cache
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\obj\Release\MACAddressReset.csproj.CoreCompileInputs.cache
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\obj\Release\MACAddressReset.exe
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\obj\Release\MACAddressReset.pdb
-D:\我的资料\5.测试项目\MAC地址修改工具\MACAddressReset\MACAddressReset\obj\Release\MACAddressReset.csprojResolveAssemblyReference.cache
