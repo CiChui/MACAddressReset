@@ -7,7 +7,6 @@ using System.Net.NetworkInformation;
 using System.Management;
 using System.Threading;
 using System.Runtime.InteropServices;
-//using NETCONLib;
 namespace MACAddressReset
 {
     public class MACHelper
@@ -44,7 +43,7 @@ namespace MACAddressReset
                         index = str;
                         MACStr = tempMacRegistry.GetValue("NetworkAddress").ToString();
                     }
-                    catch (Exception exception)
+                    catch
                     {
                         MACStr = string.Empty;
                     }
@@ -84,11 +83,7 @@ namespace MACAddressReset
             {
                 var temp = macRegistry.GetValue("NetworkAddress");
                 macRegistry.SetValue("NetworkAddress", newMac);
-                //macRegistry.OpenSubKey("Ndi", true).OpenSubKey("params", true).OpenSubKey("NetworkAddress", true).SetValue("Default", newMac);
-                //macRegistry.OpenSubKey("Ndi", true).OpenSubKey("params", true).OpenSubKey("NetworkAddress", true).SetValue("ParamDesc", "网络地址");
             }
-            //Thread oThread = new Thread(new ThreadStart(ReConnect));//new Thread to ReConnect
-            //oThread.Start();
         }
         /// <summary>
         /// 重设MAC地址
@@ -96,23 +91,6 @@ namespace MACAddressReset
         public void ResetMACAddress(string DriverDesc)
         {
             SetMACAddress(DriverDesc,string.Empty);
-        }
-        /// <summary>
-        /// 重新连接
-        /// </summary>
-        public void ReConnect()
-        {
-            //NetSharingManagerClass netSharingMgr = new NetSharingManagerClass();
-            //INetSharingEveryConnectionCollection connections = netSharingMgr.EnumEveryConnection;
-            //foreach (INetConnection connection in connections)
-            //{
-            //    INetConnectionProps connProps = netSharingMgr.get_NetConnectionProps(connection);
-            //    if (connProps.MediaType == tagNETCON_MEDIATYPE.NCM_LAN)
-            //    {
-            //        connection.Disconnect(); //禁用网络
-            //        connection.Connect();    //启用网络
-            //    }
-            //}
         }
         /// <summary>
         /// 生成随机MAC地址
@@ -139,31 +117,6 @@ namespace MACAddressReset
             ro.Next(min, max).ToString("x")
             ).ToUpper();
             return sn;
-        }
-        /// <summary>
-        /// 得到Mac地址及注册表对应Index
-        /// </summary>
-        /// <param name="macAddress"></param>
-        /// <returns></returns>
-        public string GetAdapterIndex(out string macAddress)
-        {
-            ManagementClass oMClass = new ManagementClass("Win32_NetworkAdapterConfiguration");
-            ManagementObjectCollection colMObj = oMClass.GetInstances();
-            macAddress = string.Empty;
-            int indexString = 1;
-            foreach (ManagementObject objMO in colMObj)
-            {
-                indexString++;
-                if (objMO["MacAddress"] != null && (bool)objMO["IPEnabled"] == true)
-                {
-                    macAddress = objMO["MacAddress"].ToString().Replace(":", "");
-                    break;
-                }
-            }
-            if (macAddress == string.Empty)
-                return null;
-            else
-                return indexString.ToString().PadLeft(4, '0');
         }
         /// <summary>  
         /// 禁用网卡  
